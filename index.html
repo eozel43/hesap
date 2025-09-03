@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EŞEL MOBİL HESAPLAMA</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator-card">
+        <h1>EŞEL MOBİL HESAPLAMA</h1>
+        <p class="subtitle">Dönemler arası değişim oranlarını hesaplayın.</p>
+        
+        <form id="calculator-form">
+
+          <!-- Fuel Price Section -->
+          <fieldset>
+            <legend>Yakıt Fiyatı</legend>
+            <div class="input-grid">
+              <div class="input-group">
+                <label for="fuel1-month">1. Dönem</label>
+                <div class="period-selector">
+                  <select id="fuel1-month" required>
+                    <option value="" disabled selected>Ay Seçin</option>
+                    <option value="1">Ocak</option>
+                    <option value="2">Şubat</option>
+                    <option value="3">Mart</option>
+                    <option value="4">Nisan</option>
+                    <option value="5">Mayıs</option>
+                    <option value="6">Haziran</option>
+                    <option value="7">Temmuz</option>
+                    <option value="8">Ağustos</option>
+                    <option value="9">Eylül</option>
+                    <option value="10">Ekim</option>
+                    <option value="11">Kasım</option>
+                    <option value="12">Aralık</option>
+                  </select>
+                  <select id="fuel1-year" required>
+                    <option value="" disabled selected>Yıl</option>
+                    <option value="2027">2027</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                  </select>
+                </div>
+                <input type="number" id="fuel1-value" placeholder="Dönem Fiyatı" required step="0.01">
+              </div>
+              <div class="input-group">
+                <label for="fuel2-month">2. Dönem</label>
+                <div class="period-selector">
+                   <select id="fuel2-month" required>
+                    <option value="" disabled selected>Ay Seçin</option>
+                    <option value="1">Ocak</option>
+                    <option value="2">Şubat</option>
+                    <option value="3">Mart</option>
+                    <option value="4">Nisan</option>
+                    <option value="5">Mayıs</option>
+                    <option value="6">Haziran</option>
+                    <option value="7">Temmuz</option>
+                    <option value="8">Ağustos</option>
+                    <option value="9">Eylül</option>
+                    <option value="10">Ekim</option>
+                    <option value="11">Kasım</option>
+                    <option value="12">Aralık</option>
+                  </select>
+                  <select id="fuel2-year" required>
+                    <option value="" disabled selected>Yıl</option>
+                    <option value="2027">2027</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                  </select>
+                </div>
+                <input type="number" id="fuel2-value" placeholder="Dönem Fiyatı" required step="0.01">
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- TUFE Section -->
+          <fieldset>
+            <legend>TÜFE Değeri</legend>
+            <div class="input-grid">
+              <div class="input-group">
+                <label for="tufe1-month">1. Dönem</label>
+                <div class="period-selector tufe-period-selector">
+                  <select id="tufe1-month" required>
+                    <option value="" disabled selected>Ay Seçin</option>
+                    <option value="1">Ocak</option>
+                    <option value="2">Şubat</option>
+                    <option value="3">Mart</option>
+                    <option value="4">Nisan</option>
+                    <option value="5">Mayıs</option>
+                    <option value="6">Haziran</option>
+                    <option value="7">Temmuz</option>
+                    <option value="8">Ağustos</option>
+                    <option value="9">Eylül</option>
+                    <option value="10">Ekim</option>
+                    <option value="11">Kasım</option>
+                    <option value="12">Aralık</option>
+                  </select>
+                  <select id="tufe1-year" required>
+                     <option value="" disabled selected>Yıl</option>
+                     <option value="2027">2027</option>
+                     <option value="2026">2026</option>
+                     <option value="2025">2025</option>
+                     <option value="2024">2024</option>
+                     <option value="2023">2023</option>
+                  </select>
+                </div>
+                 <input type="number" id="tufe1-value" placeholder="Dönem Değeri" required step="0.01">
+              </div>
+              <div class="input-group">
+                <label for="tufe2-month">2. Dönem</label>
+                <div class="period-selector tufe-period-selector">
+                  <select id="tufe2-month" required>
+                     <option value="" disabled selected>Ay Seçin</option>
+                    <option value="1">Ocak</option>
+                    <option value="2">Şubat</option>
+                    <option value="3">Mart</option>
+                    <option value="4">Nisan</option>
+                    <option value="5">Mayıs</option>
+                    <option value="6">Haziran</option>
+                    <option value="7">Temmuz</option>
+                    <option value="8">Ağustos</option>
+                    <option value="9">Eylül</option>
+                    <option value="10">Ekim</option>
+                    <option value="11">Kasım</option>
+                    <option value="12">Aralık</option>
+                  </select>
+                  <select id="tufe2-year" required>
+                     <option value="" disabled selected>Yıl</option>
+                     <option value="2027">2027</option>
+                     <option value="2026">2026</option>
+                     <option value="2025">2025</option>
+                     <option value="2024">2024</option>
+                     <option value="2023">2023</option>
+                  </select>
+                </div>
+                <input type="number" id="tufe2-value" placeholder="Dönem Değeri" required step="0.01">
+              </div>
+            </div>
+          </fieldset>
+
+           <!-- Minimum Wage Section -->
+          <fieldset>
+            <legend>Asgari Ücret</legend>
+            <div class="input-grid">
+              <div class="input-group">
+                <label for="wage1-month">1. Dönem</label>
+                <div class="period-selector">
+                  <select id="wage1-month" required>
+                    <option value="" disabled selected>Ay Seçin</option>
+                    <option value="1">Ocak</option>
+                    <option value="2">Şubat</option>
+                    <option value="3">Mart</option>
+                    <option value="4">Nisan</option>
+                    <option value="5">Mayıs</option>
+                    <option value="6">Haziran</option>
+                    <option value="7">Temmuz</option>
+                    <option value="8">Ağustos</option>
+                    <option value="9">Eylül</option>
+                    <option value="10">Ekim</option>
+                    <option value="11">Kasım</option>
+                    <option value="12">Aralık</option>
+                  </select>
+                  <select id="wage1-year" required>
+                    <option value="" disabled selected>Yıl</option>
+                    <option value="2027">2027</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                  </select>
+                </div>
+                <input type="number" id="wage1-value" placeholder="Dönem Ücreti" required step="0.01">
+              </div>
+              <div class="input-group">
+                <label for="wage2-month">2. Dönem</label>
+                <div class="period-selector">
+                   <select id="wage2-month" required>
+                    <option value="" disabled selected>Ay Seçin</option>
+                    <option value="1">Ocak</option>
+                    <option value="2">Şubat</option>
+                    <option value="3">Mart</option>
+                    <option value="4">Nisan</option>
+                    <option value="5">Mayıs</option>
+                    <option value="6">Haziran</option>
+                    <option value="7">Temmuz</option>
+                    <option value="8">Ağustos</option>
+                    <option value="9">Eylül</option>
+                    <option value="10">Ekim</option>
+                    <option value="11">Kasım</option>
+                    <option value="12">Aralık</option>
+                  </select>
+                  <select id="wage2-year" required>
+                    <option value="" disabled selected>Yıl</option>
+                    <option value="2027">2027</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                  </select>
+                </div>
+                <input type="number" id="wage2-value" placeholder="Dönem Ücreti" required step="0.01">
+              </div>
+            </div>
+          </fieldset>
+
+          <button type="submit">Hesapla</button>
+        </form>
+
+        <div id="result-fuel" class="result-container"></div>
+        <div id="result-tufe" class="result-container"></div>
+        <div id="result-wage" class="result-container"></div>
+        <div id="result-total" class="total-result-container"></div>
+
+      </div>
+    </div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

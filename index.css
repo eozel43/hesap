@@ -1,0 +1,278 @@
+:root {
+  --bg-start: #1a1a2e;
+  --bg-end: #16213e;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0b0;
+  --accent-color: #00c6ff;
+  --accent-color-dark: #0072ff;
+  --error-color: #ff4757;
+  --success-color: #2ed573;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Changed from center to allow scrolling */
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.calculator-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+legend {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    text-align: left;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+
+.input-group input, .input-group select {
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input::placeholder {
+  color: #6a6a7a;
+}
+
+.input-group input:focus, .input-group select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(0, 198, 255, 0.2);
+}
+
+.period-selector {
+    display: flex;
+    gap: 10px;
+}
+
+/* Month select is wider */
+.period-selector select[id$="-month"] {
+    flex: 2.5;
+}
+
+/* Year select is narrower */
+.period-selector select[id$="-year"] {
+    flex: 1.5;
+}
+
+/* Value input is wider, specific to TUFE container */
+.tufe-period-selector input[type="number"] {
+    flex: 2;
+}
+
+
+/* Hide number input spinners */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color-dark));
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 150, 255, 0.3);
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 150, 255, 0.4);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+.result-container {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  display: none; /* Initially hidden */
+}
+
+.result-container.visible {
+    display: flex;
+}
+
+.result-container.increase {
+  background-color: rgba(255, 71, 87, 0.1);
+  color: var(--error-color);
+}
+
+.result-container.decrease {
+  background-color: rgba(46, 213, 115, 0.1);
+  color: var(--success-color);
+}
+
+.result-container.no-change {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+}
+
+.percentage {
+  display: block;
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.weighted-result {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--card-border);
+  width: 100%;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.total-result-container {
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 12px;
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.total-result-container.visible {
+    display: flex;
+}
+
+.total-result-container.increase {
+    background: linear-gradient(135deg, #c23644, var(--error-color));
+}
+
+.total-result-container.decrease {
+    background: linear-gradient(135deg, #209c53, var(--success-color));
+}
+
+.total-result-container.no-change {
+    background: linear-gradient(135deg, #57586b, var(--text-secondary));
+}
+
+.total-result-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+    
+.total-result-percentage {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+
+@media (max-width: 640px) {
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+  .calculator-card {
+    padding: 30px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .tufe-period-selector, .period-selector {
+    flex-direction: column;
+  }
+}
